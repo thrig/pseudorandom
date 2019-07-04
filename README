@@ -1,0 +1,14 @@
+pseudorandom - Pseudo Random Distribution functions
+
+for when you want the player's intuition that a coin flip "ought to"
+come up heads after a run of misses. this intuition is of course totally
+wrong but has its uses in games of not-so-much-as-usual chance
+
+  (defpackage :foo
+    (:use :common-lisp :pseudorandom))
+  (in-package :foo)
+  (destructuring-bind
+      (rand reset)
+      (prd-step 0.25 0.41675)
+    (princ (funcall rand))
+    (funcall reset))
